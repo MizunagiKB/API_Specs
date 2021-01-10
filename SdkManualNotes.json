@@ -17,6 +17,7 @@
         "pythonsdk": "0.0.201218",
         "unrealmarketplaceplugin": "1.51.201218",
         "newtarget": "0.0.todaysDate",
-        "jcutestrepo": "0.0.201218"
+        "jcutestrepo": "0.0.201218",
+        "gdscriptsdk": "0.0.201218"
     }
 }
