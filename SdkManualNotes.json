@@ -1,23 +1,20 @@
 {
     "description": "This file records version numbers for each SdkGenerator target.  Keys must be lowercase, and match subfolders in SdkGenerator/targets.",
     "sdkVersion": {
-        "actionscript": "0.119.201218",
-        "cpp-cocos2dx": "0.97.201218",
-        "csharp": "1.86.201218",
-        "javascript": "1.79.201218",
-        "java": "0.124.201218",
-        "luasdk": "0.91.201218",
-        "js-node": "2.61.201218",
-        "postman": "0.116.201218",
-        "unity-v2": "2.101.201218",
-        "xplatcppsdk": "3.44.201218",
-        "phpsdk": "0.0.201218",
-        "sdktestingcloudscript": "0.0.201218",
-        "objc": "0.0.201218",
-        "pythonsdk": "0.0.201218",
-        "unrealmarketplaceplugin": "1.51.201218",
+        "csharp": "1.88.210125",
+        "javascript": "1.81.210125",
+        "java": "0.126.210125",
+        "luasdk": "0.93.210125",
+        "js-node": "2.63.210125",
+        "postman": "0.118.210125",
+        "unity-v2": "2.103.210125",
+        "xplatcppsdk": "3.46.210125",
+        "phpsdk": "0.0.210125",
+        "sdktestingcloudscript": "0.0.210125",
+        "objc": "0.0.210125",
+        "pythonsdk": "0.0.210125",
+        "unrealmarketplaceplugin": "1.53.210125",
         "newtarget": "0.0.todaysDate",
-        "jcutestrepo": "0.0.201218",
-        "gdscriptsdk": "0.0.201218"
+        "jcutestrepo": "0.0.210125"
     }
 }

@@ -175,6 +175,7 @@
       "result": "WriteEventsResponse",
       "resultExample": "{\r\n  \"code\": 200,\r\n  \"status\": \"OK\",\r\n  \"data\": {\r\n    \"AssignedEventIds\": [\r\n      \"496b598a05404142a6b6349c8cb29459\"\r\n    ]\r\n  }\r\n}",
       "errors": [
+        "EncryptionKeyBroken",
         "EventEntityNotAllowed",
         "EventNamespaceNotAllowed",
         "InvalidJSONContent",
@@ -194,6 +195,7 @@
       "result": "WriteEventsResponse",
       "resultExample": "{\r\n  \"code\": 200,\r\n  \"status\": \"OK\",\r\n  \"data\": {\r\n    \"AssignedEventIds\": [\r\n      \"496b598a05404142a6b6349c8cb29459\"\r\n    ]\r\n  }\r\n}",
       "errors": [
+        "EncryptionKeyBroken",
         "EventEntityNotAllowed",
         "EventNamespaceNotAllowed",
         "InvalidJSONContent",
@@ -2210,6 +2212,14 @@
       "id": 1512,
       "name": "VirtualCurrencyCurrentlyUnavailable"
     },
+    "SteamUserNotFound": {
+      "id": 1513,
+      "name": "SteamUserNotFound"
+    },
+    "ElasticSearchOperationFailed": {
+      "id": 1514,
+      "name": "ElasticSearchOperationFailed"
+    },
     "MatchmakingEntityInvalid": {
       "id": 2001,
       "name": "MatchmakingEntityInvalid"
@@ -2305,6 +2315,10 @@
     "TitleConfigSerializationError": {
       "id": 3003,
       "name": "TitleConfigSerializationError"
+    },
+    "CatalogApiNotImplemented": {
+      "id": 4000,
+      "name": "CatalogApiNotImplemented"
     },
     "CatalogEntityInvalid": {
       "id": 4001,
@@ -2614,6 +2628,10 @@
       "id": 7021,
       "name": "ExperimentationExclusionGroupInvalidTrafficAllocation"
     },
+    "ExperimentationExclusionGroupInvalidName": {
+      "id": 7022,
+      "name": "ExperimentationExclusionGroupInvalidName"
+    },
     "MaxActionDepthExceeded": {
       "id": 8000,
       "name": "MaxActionDepthExceeded"
@@ -2669,6 +2687,10 @@
     "SnapshotNotFound": {
       "id": 11000,
       "name": "SnapshotNotFound"
+    },
+    "InventoryApiNotImplemented": {
+      "id": 12000,
+      "name": "InventoryApiNotImplemented"
     }
   },
   "errorList": [
@@ -3174,6 +3196,8 @@
     "WasNotCreatedWithCloudRoot",
     "LegacyMultiplayerServersDeprecated",
     "VirtualCurrencyCurrentlyUnavailable",
+    "SteamUserNotFound",
+    "ElasticSearchOperationFailed",
     "MatchmakingEntityInvalid",
     "MatchmakingPlayerAttributesInvalid",
     "MatchmakingQueueNotFound",
@@ -3198,6 +3222,7 @@
     "TitleConfigNotFound",
     "TitleConfigUpdateConflict",
     "TitleConfigSerializationError",
+    "CatalogApiNotImplemented",
     "CatalogEntityInvalid",
     "CatalogTitleIdMissing",
     "CatalogPlayerIdMissing",
@@ -3275,6 +3300,7 @@
     "ExperimentationExclusionGroupInsufficientCapacity",
     "ExperimentationExclusionGroupCannotDelete",
     "ExperimentationExclusionGroupInvalidTrafficAllocation",
+    "ExperimentationExclusionGroupInvalidName",
     "MaxActionDepthExceeded",
     "TitleNotOnUpdatedPricingPlan",
     "SegmentManagementTitleNotInFlight",
@@ -3288,6 +3314,7 @@
     "CreateSegmentRateLimitExceeded",
     "UpdateSegmentRateLimitExceeded",
     "GetSegmentsRateLimitExceeded",
-    "SnapshotNotFound"
+    "SnapshotNotFound",
+    "InventoryApiNotImplemented"
   ]
 }

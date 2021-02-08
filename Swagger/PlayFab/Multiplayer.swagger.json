@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "201217",
+    "version": "210129",
     "title": "PlayFab Multiplayer API",
     "description": "API methods for managing multiplayer servers. API methods for managing parties.",
     "termsOfService": "https://playfab.com/terms/",
@@ -953,6 +953,48 @@
         ]
       }
     },
+    "/MultiplayerServer/CreateTitleMultiplayerServersQuotaChange": {
+      "post": {
+        "operationId": "CreateTitleMultiplayerServersQuotaChange",
+        "tags": [
+          "MultiplayerServer"
+        ],
+        "description": "Creates a request to change a title's multiplayer server quotas.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/createtitlemultiplayerserversquotachange"
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/CreateTitleMultiplayerServersQuotaChangeRequest"
+          }
+        ],
+        "security": [
+          {
+            "EntityToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CreateTitleMultiplayerServersQuotaChangeResponse"
+          },
+          "400": {
+            "$ref": "#/responses/ApiErrorWrapper"
+          }
+        },
+        "x-requestDetails": "Creates a request to change a title's multiplayer server quotas.",
+        "x-seeAlso": [
+          "MultiplayerServer/GetTitleMultiplayerServersQuotaChange",
+          "MultiplayerServer/ListTitleMultiplayerServersQuotaChanges"
+        ],
+        "x-ms-docs-errors": [
+          "APINotEnabledForGameClientAccess",
+          "MultiplayerServerBadRequest",
+          "MultiplayerServerForbidden",
+          "MultiplayerServerInternalServerError",
+          "MultiplayerServerUnauthorized"
+        ]
+      }
+    },
     "/MultiplayerServer/DeleteAsset": {
       "post": {
         "operationId": "DeleteAsset",
@@ -1718,6 +1760,48 @@
         ]
       }
     },
+    "/MultiplayerServer/GetTitleMultiplayerServersQuotaChange": {
+      "post": {
+        "operationId": "GetTitleMultiplayerServersQuotaChange",
+        "tags": [
+          "MultiplayerServer"
+        ],
+        "description": "Gets a title's server quota change request.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/gettitlemultiplayerserversquotachange"
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/GetTitleMultiplayerServersQuotaChangeRequest"
+          }
+        ],
+        "security": [
+          {
+            "EntityToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/GetTitleMultiplayerServersQuotaChangeResponse"
+          },
+          "400": {
+            "$ref": "#/responses/ApiErrorWrapper"
+          }
+        },
+        "x-requestDetails": "Gets a title's server quota change request.",
+        "x-seeAlso": [
+          "MultiplayerServer/CreateTitleMultiplayerServersQuotaChange",
+          "MultiplayerServer/ListTitleMultiplayerServersQuotaChanges"
+        ],
+        "x-ms-docs-errors": [
+          "APINotEnabledForGameClientAccess",
+          "MultiplayerServerBadRequest",
+          "MultiplayerServerForbidden",
+          "MultiplayerServerInternalServerError",
+          "MultiplayerServerUnauthorized"
+        ]
+      }
+    },
     "/MultiplayerServer/GetTitleMultiplayerServersQuotas": {
       "post": {
         "operationId": "GetTitleMultiplayerServersQuotas",
@@ -2192,6 +2276,48 @@
         ]
       }
     },
+    "/MultiplayerServer/ListTitleMultiplayerServersQuotaChanges": {
+      "post": {
+        "operationId": "ListTitleMultiplayerServersQuotaChanges",
+        "tags": [
+          "MultiplayerServer"
+        ],
+        "description": "List all server quota change requests for a title.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listtitlemultiplayerserversquotachanges"
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/ListTitleMultiplayerServersQuotaChangesRequest"
+          }
+        ],
+        "security": [
+          {
+            "EntityToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/ListTitleMultiplayerServersQuotaChangesResponse"
+          },
+          "400": {
+            "$ref": "#/responses/ApiErrorWrapper"
+          }
+        },
+        "x-requestDetails": "List all server quota change requests for a title.",
+        "x-seeAlso": [
+          "MultiplayerServer/CreateTitleMultiplayerServersQuotaChange",
+          "MultiplayerServer/GetTitleMultiplayerServersQuotaChange"
+        ],
+        "x-ms-docs-errors": [
+          "APINotEnabledForGameClientAccess",
+          "MultiplayerServerBadRequest",
+          "MultiplayerServerForbidden",
+          "MultiplayerServerInternalServerError",
+          "MultiplayerServerUnauthorized"
+        ]
+      }
+    },
     "/MultiplayerServer/ListVirtualMachineSummaries": {
       "post": {
         "operationId": "ListVirtualMachineSummaries",
@@ -2454,6 +2580,53 @@
         ]
       }
     },
+    "/MultiplayerServer/UpdateBuildName": {
+      "post": {
+        "operationId": "UpdateBuildName",
+        "tags": [
+          "MultiplayerServer"
+        ],
+        "description": "Updates a multiplayer server build's name.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/updatebuildname"
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/UpdateBuildNameRequest"
+          }
+        ],
+        "security": [
+          {
+            "EntityToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/EmptyResponse"
+          },
+          "400": {
+            "$ref": "#/responses/ApiErrorWrapper"
+          }
+        },
+        "x-requestDetails": "Updates a multiplayer server build's name.",
+        "x-seeAlso": [
+          "MultiplayerServer/DeleteBuild",
+          "MultiplayerServer/GetBuild",
+          "MultiplayerServer/ListBuildSummariesV2",
+          "MultiplayerServer/UpdateBuildRegion",
+          "MultiplayerServer/UpdateBuildRegions"
+        ],
+        "x-ms-docs-errors": [
+          "APINotEnabledForGameClientAccess",
+          "MultiplayerServerBadRequest",
+          "MultiplayerServerConflict",
+          "MultiplayerServerForbidden",
+          "MultiplayerServerInternalServerError",
+          "MultiplayerServerUnauthorized",
+          "MultiplayerServerUnavailable"
+        ]
+      }
+    },
     "/MultiplayerServer/UpdateBuildRegion": {
       "post": {
         "operationId": "UpdateBuildRegion",
@@ -2676,7 +2849,7 @@
       }
     },
     "AttributeMergeFunction": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Min",
         "Max",
@@ -2687,7 +2860,7 @@
       ]
     },
     "AttributeNotSpecifiedBehavior": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "UseDefault",
         "MatchAny"
@@ -2697,7 +2870,7 @@
       ]
     },
     "AttributeSource": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "User",
         "PlayerEntity"
@@ -2707,7 +2880,7 @@
       ]
     },
     "AzureRegion": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "AustraliaEast",
         "AustraliaSoutheast",
@@ -2728,11 +2901,16 @@
         "ChinaNorth2",
         "SouthAfricaNorth",
         "CentralUsEuap",
-        "WestCentralUs"
+        "WestCentralUs",
+        "KoreaCentral",
+        "FranceCentral",
+        "WestUs2",
+        "CentralIndia",
+        "UaeNorth"
       ]
     },
     "AzureVmFamily": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "A",
         "Av2",
@@ -2745,11 +2923,13 @@
         "Eav4",
         "Easv4",
         "Ev4",
-        "Esv4"
+        "Esv4",
+        "Dsv3",
+        "Dsv2"
       ]
     },
     "AzureVmSize": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Standard_A1",
         "Standard_A2",
@@ -2784,7 +2964,24 @@
         "Standard_D2a_v4",
         "Standard_D4a_v4",
         "Standard_D8a_v4",
-        "Standard_D16a_v4"
+        "Standard_D16a_v4",
+        "Standard_E2a_v4",
+        "Standard_E4a_v4",
+        "Standard_E8a_v4",
+        "Standard_E16a_v4",
+        "Standard_E2as_v4",
+        "Standard_E4as_v4",
+        "Standard_E8as_v4",
+        "Standard_E16as_v4",
+        "Standard_D2s_v3",
+        "Standard_D4s_v3",
+        "Standard_D8s_v3",
+        "Standard_D16s_v3",
+        "Standard_DS1_v2",
+        "Standard_DS2_v2",
+        "Standard_DS3_v2",
+        "Standard_DS4_v2",
+        "Standard_DS5_v2"
       ]
     },
     "BuildAliasDetailsResponse": {
@@ -3044,7 +3241,7 @@
       "example": {}
     },
     "CancellationReason": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Requested",
         "Internal",
@@ -3157,7 +3354,7 @@
       }
     },
     "ContainerFlavor": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "ManagedWindowsServerCore",
         "CustomLinux",
@@ -3209,6 +3406,32 @@
       "required": [
         "Total",
         "Available"
+      ]
+    },
+    "CoreCapacityChange": {
+      "type": "object",
+      "properties": {
+        "NewCoreLimit": {
+          "description": "New quota core limit for the given vm family/region.",
+          "type": "number",
+          "x-actualtype": "int32"
+        },
+        "Region": {
+          "$ref": "#/definitions/AzureRegion",
+          "description": "Region to change.",
+          "type": "string"
+        },
+        "VmFamily": {
+          "$ref": "#/definitions/AzureVmFamily",
+          "description": "Virtual machine family to change.",
+          "type": "string",
+          "x-isenum": true
+        }
+      },
+      "required": [
+        "VmFamily",
+        "Region",
+        "NewCoreLimit"
       ]
     },
     "CreateBuildAliasRequest": {
@@ -4516,6 +4739,81 @@
         ],
         "GiveUpAfterSeconds": 100,
         "QueueName": "custom123"
+      }
+    },
+    "CreateTitleMultiplayerServersQuotaChangeRequest": {
+      "description": "Creates a request to change a title's multiplayer server quotas.",
+      "type": "object",
+      "properties": {
+        "ChangeDescription": {
+          "description": "A brief description of the requested changes.",
+          "type": "string"
+        },
+        "Changes": {
+          "description": "Changes to make to the titles cores quota.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CoreCapacityChange"
+          },
+          "x-isclass": true
+        },
+        "ContactEmail": {
+          "description": "Email to be contacted by our team about this request. Only required when a request is not approved.",
+          "type": "string"
+        },
+        "CustomTags": {
+          "description": "The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).",
+          "type": "object"
+        },
+        "Notes": {
+          "description": "Additional information about this request that our team can use to better understand the requirements.",
+          "type": "string"
+        },
+        "StartDate": {
+          "description": "When these changes would need to be in effect. Only required when a request is not approved.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "Changes"
+      ],
+      "example": {
+        "ContactEmail": "john@mygamestudio.com",
+        "StartDate": "2020-01-23T00:00:00",
+        "ChangeDescription": "Season 3 Launch",
+        "Notes": "Based on the last launch, we expect 1 trillion active users.",
+        "Changes": [
+          {
+            "VmFamily": "Dv2",
+            "Region": "EastUs",
+            "NewCoreLimit": 55000
+          },
+          {
+            "VmFamily": "Dv2",
+            "Region": "NorthCentralUs",
+            "NewCoreLimit": 65000
+          }
+        ]
+      }
+    },
+    "CreateTitleMultiplayerServersQuotaChangeResponse": {
+      "type": "object",
+      "properties": {
+        "RequestId": {
+          "description": "Id of the change request that was created.",
+          "type": "string"
+        },
+        "WasApproved": {
+          "description": "Determines if the request was approved or not. When false, our team is reviewing and may respond within 2 business days.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "WasApproved"
+      ],
+      "example": {
+        "RequestId": "1234",
+        "WasApproved": true
       }
     },
     "CurrentServerStats": {
@@ -6033,6 +6331,50 @@
         "Status": "Disabled"
       }
     },
+    "GetTitleMultiplayerServersQuotaChangeRequest": {
+      "description": "Gets a title's server quota change request.",
+      "type": "object",
+      "properties": {
+        "CustomTags": {
+          "description": "The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).",
+          "type": "object"
+        },
+        "RequestId": {
+          "description": "Id of the change request to get.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "RequestId"
+      ],
+      "example": {
+        "RequestId": "1234"
+      }
+    },
+    "GetTitleMultiplayerServersQuotaChangeResponse": {
+      "type": "object",
+      "properties": {
+        "Change": {
+          "$ref": "#/definitions/QuotaChange",
+          "description": "The change request for this title.",
+          "type": "object",
+          "x-isclass": true
+        }
+      },
+      "example": {
+        "Change": {
+          "RequestId": "1234",
+          "WasApproved": true,
+          "Changes": [
+            {
+              "VmFamily": "Dv2",
+              "Region": "EastUs",
+              "NewCoreLimit": 8
+            }
+          ]
+        }
+      }
+    },
     "GetTitleMultiplayerServersQuotasRequest": {
       "description": "Gets the quotas for a title in relation to multiplayer servers.",
       "type": "object",
@@ -6904,6 +7246,45 @@
         ]
       }
     },
+    "ListTitleMultiplayerServersQuotaChangesRequest": {
+      "description": "List all server quota change requests for a title.",
+      "type": "object",
+      "properties": {
+        "CustomTags": {
+          "description": "The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).",
+          "type": "object"
+        }
+      },
+      "example": {}
+    },
+    "ListTitleMultiplayerServersQuotaChangesResponse": {
+      "type": "object",
+      "properties": {
+        "Changes": {
+          "description": "All change requests for this title.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QuotaChange"
+          },
+          "x-isclass": true
+        }
+      },
+      "example": {
+        "Changes": [
+          {
+            "RequestId": "1234",
+            "WasApproved": true,
+            "Changes": [
+              {
+                "VmFamily": "Dv2",
+                "Region": "EastUs",
+                "NewCoreLimit": 8
+              }
+            ]
+          }
+        ]
+      }
+    },
     "ListVirtualMachineSummariesRequest": {
       "description": "Returns a list of virtual machines for a title.",
       "type": "object",
@@ -7498,7 +7879,7 @@
       }
     },
     "OsPlatform": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Windows",
         "Linux"
@@ -7562,7 +7943,7 @@
       ]
     },
     "ProtocolType": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "TCP",
         "UDP"
@@ -7605,6 +7986,47 @@
       },
       "x-AnyInclusiveFlags": [
         "RequiresOptionalValueSupport"
+      ]
+    },
+    "QuotaChange": {
+      "type": "object",
+      "properties": {
+        "ChangeDescription": {
+          "description": "A brief description of the requested changes.",
+          "type": "string"
+        },
+        "Changes": {
+          "description": "Requested changes to make to the titles cores quota.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CoreCapacityChange"
+          },
+          "x-isclass": true
+        },
+        "IsPendingReview": {
+          "description": "Whether or not this request is pending a review.",
+          "type": "boolean"
+        },
+        "Notes": {
+          "description": "Additional information about this request that our team can use to better understand the requirements.",
+          "type": "string"
+        },
+        "RequestId": {
+          "description": "Id of the change request.",
+          "type": "string"
+        },
+        "ReviewComments": {
+          "description": "Comments by our team when a request is reviewed.",
+          "type": "string"
+        },
+        "WasApproved": {
+          "description": "Whether or not this request was approved.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "IsPendingReview",
+        "WasApproved"
       ]
     },
     "RegionSelectionRule": {
@@ -7953,7 +8375,7 @@
       }
     },
     "ServerType": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Container",
         "Process"
@@ -8538,7 +8960,7 @@
       ]
     },
     "TitleMultiplayerServerEnabledStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Initializing",
         "Enabled",
@@ -8618,6 +9040,32 @@
           }
         ],
         "AliasId": "21781fa8-096d-4d9c-b699-75433d579285"
+      }
+    },
+    "UpdateBuildNameRequest": {
+      "description": "Updates a multiplayer server build's name.",
+      "type": "object",
+      "properties": {
+        "BuildId": {
+          "description": "The guid string ID of the build we want to update the name of.",
+          "type": "string"
+        },
+        "BuildName": {
+          "description": "The build name.",
+          "type": "string"
+        },
+        "CustomTags": {
+          "description": "The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).",
+          "type": "object"
+        }
+      },
+      "required": [
+        "BuildId",
+        "BuildName"
+      ],
+      "example": {
+        "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
+        "BuildName": "GameBuildName"
       }
     },
     "UpdateBuildRegionRequest": {
@@ -8839,6 +9287,14 @@
         "$ref": "#/definitions/CreateServerMatchmakingTicketRequest"
       }
     },
+    "CreateTitleMultiplayerServersQuotaChangeRequest": {
+      "name": "CreateTitleMultiplayerServersQuotaChangeRequest",
+      "in": "body",
+      "description": "Creates a request to change a title's multiplayer server quotas.",
+      "schema": {
+        "$ref": "#/definitions/CreateTitleMultiplayerServersQuotaChangeRequest"
+      }
+    },
     "DeleteAssetRequest": {
       "name": "DeleteAssetRequest",
       "in": "body",
@@ -9015,6 +9471,14 @@
         "$ref": "#/definitions/GetTitleEnabledForMultiplayerServersStatusRequest"
       }
     },
+    "GetTitleMultiplayerServersQuotaChangeRequest": {
+      "name": "GetTitleMultiplayerServersQuotaChangeRequest",
+      "in": "body",
+      "description": "Gets a title's server quota change request.",
+      "schema": {
+        "$ref": "#/definitions/GetTitleMultiplayerServersQuotaChangeRequest"
+      }
+    },
     "GetTitleMultiplayerServersQuotasRequest": {
       "name": "GetTitleMultiplayerServersQuotasRequest",
       "in": "body",
@@ -9119,6 +9583,14 @@
         "$ref": "#/definitions/ListServerBackfillTicketsForPlayerRequest"
       }
     },
+    "ListTitleMultiplayerServersQuotaChangesRequest": {
+      "name": "ListTitleMultiplayerServersQuotaChangesRequest",
+      "in": "body",
+      "description": "List all server quota change requests for a title.",
+      "schema": {
+        "$ref": "#/definitions/ListTitleMultiplayerServersQuotaChangesRequest"
+      }
+    },
     "ListVirtualMachineSummariesRequest": {
       "name": "ListVirtualMachineSummariesRequest",
       "in": "body",
@@ -9189,6 +9661,14 @@
       "description": "Creates a multiplayer server build alias and returns the created alias.",
       "schema": {
         "$ref": "#/definitions/UpdateBuildAliasRequest"
+      }
+    },
+    "UpdateBuildNameRequest": {
+      "name": "UpdateBuildNameRequest",
+      "in": "body",
+      "description": "Updates a multiplayer server build's name.",
+      "schema": {
+        "$ref": "#/definitions/UpdateBuildNameRequest"
       }
     },
     "UpdateBuildRegionRequest": {
@@ -9717,6 +10197,33 @@
         }
       }
     },
+    "CreateTitleMultiplayerServersQuotaChangeResponse": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "The Http status code. If X-ReportErrorAsSuccess header is set to true, this will report the actual http error code."
+          },
+          "status": {
+            "type": "string",
+            "description": "The Http status code as a string."
+          },
+          "data": {
+            "$ref": "#/definitions/CreateTitleMultiplayerServersQuotaChangeResponse"
+          }
+        },
+        "example": {
+          "code": 200,
+          "status": "OK",
+          "data": {
+            "RequestId": "1234",
+            "WasApproved": true
+          }
+        }
+      }
+    },
     "EmptyResponse": {
       "description": "",
       "schema": {
@@ -10210,6 +10717,42 @@
         }
       }
     },
+    "GetTitleMultiplayerServersQuotaChangeResponse": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "The Http status code. If X-ReportErrorAsSuccess header is set to true, this will report the actual http error code."
+          },
+          "status": {
+            "type": "string",
+            "description": "The Http status code as a string."
+          },
+          "data": {
+            "$ref": "#/definitions/GetTitleMultiplayerServersQuotaChangeResponse"
+          }
+        },
+        "example": {
+          "code": 200,
+          "status": "OK",
+          "data": {
+            "Change": {
+              "RequestId": "1234",
+              "WasApproved": true,
+              "Changes": [
+                {
+                  "VmFamily": "Dv2",
+                  "Region": "EastUs",
+                  "NewCoreLimit": 8
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
     "GetTitleMultiplayerServersQuotasResponse": {
       "description": "",
       "schema": {
@@ -10654,6 +11197,44 @@
             "TicketIds": [
               "1c4b0daa-150e-47ae-9923-d770c0f9b07c",
               "d7cf891d-1dea-4f32-9e7e-277c0a245064"
+            ]
+          }
+        }
+      }
+    },
+    "ListTitleMultiplayerServersQuotaChangesResponse": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "The Http status code. If X-ReportErrorAsSuccess header is set to true, this will report the actual http error code."
+          },
+          "status": {
+            "type": "string",
+            "description": "The Http status code as a string."
+          },
+          "data": {
+            "$ref": "#/definitions/ListTitleMultiplayerServersQuotaChangesResponse"
+          }
+        },
+        "example": {
+          "code": 200,
+          "status": "OK",
+          "data": {
+            "Changes": [
+              {
+                "RequestId": "1234",
+                "WasApproved": true,
+                "Changes": [
+                  {
+                    "VmFamily": "Dv2",
+                    "Region": "EastUs",
+                    "NewCoreLimit": 8
+                  }
+                ]
+              }
             ]
           }
         }
@@ -12858,6 +13439,14 @@
       "id": 1512,
       "name": "VirtualCurrencyCurrentlyUnavailable"
     },
+    "SteamUserNotFound": {
+      "id": 1513,
+      "name": "SteamUserNotFound"
+    },
+    "ElasticSearchOperationFailed": {
+      "id": 1514,
+      "name": "ElasticSearchOperationFailed"
+    },
     "MatchmakingEntityInvalid": {
       "id": 2001,
       "name": "MatchmakingEntityInvalid"
@@ -12953,6 +13542,10 @@
     "TitleConfigSerializationError": {
       "id": 3003,
       "name": "TitleConfigSerializationError"
+    },
+    "CatalogApiNotImplemented": {
+      "id": 4000,
+      "name": "CatalogApiNotImplemented"
     },
     "CatalogEntityInvalid": {
       "id": 4001,
@@ -13262,6 +13855,10 @@
       "id": 7021,
       "name": "ExperimentationExclusionGroupInvalidTrafficAllocation"
     },
+    "ExperimentationExclusionGroupInvalidName": {
+      "id": 7022,
+      "name": "ExperimentationExclusionGroupInvalidName"
+    },
     "MaxActionDepthExceeded": {
       "id": 8000,
       "name": "MaxActionDepthExceeded"
@@ -13317,6 +13914,10 @@
     "SnapshotNotFound": {
       "id": 11000,
       "name": "SnapshotNotFound"
+    },
+    "InventoryApiNotImplemented": {
+      "id": 12000,
+      "name": "InventoryApiNotImplemented"
     }
   }
 }

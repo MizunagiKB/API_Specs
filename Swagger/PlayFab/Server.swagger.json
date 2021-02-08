@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "201217",
+    "version": "210129",
     "title": "PlayFab Server API",
     "description": "Provides functionality to allow external (developer-controlled) servers to interact with user inventories and data in a trusted manner, and to handle matchmaking and client connection orchestration",
     "termsOfService": "https://playfab.com/terms/",
@@ -5623,7 +5623,7 @@
       }
     },
     "CloudScriptRevisionOption": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Live",
         "Latest",
@@ -5721,7 +5721,7 @@
       }
     },
     "ContinentCode": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "AF",
         "AN",
@@ -5733,7 +5733,7 @@
       ]
     },
     "CountryCode": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "AF",
         "AX",
@@ -6012,7 +6012,7 @@
       }
     },
     "Currency": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "AED",
         "AFN",
@@ -6293,7 +6293,7 @@
       "properties": {}
     },
     "EmailVerificationStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Unverified",
         "Pending",
@@ -6644,14 +6644,14 @@
       }
     },
     "GameInstanceState": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Open",
         "Closed"
       ]
     },
     "GenericErrorCodes": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Success",
         "UnkownError",
@@ -7155,6 +7155,8 @@
         "WasNotCreatedWithCloudRoot",
         "LegacyMultiplayerServersDeprecated",
         "VirtualCurrencyCurrentlyUnavailable",
+        "SteamUserNotFound",
+        "ElasticSearchOperationFailed",
         "MatchmakingEntityInvalid",
         "MatchmakingPlayerAttributesInvalid",
         "MatchmakingQueueNotFound",
@@ -7179,6 +7181,7 @@
         "TitleConfigNotFound",
         "TitleConfigUpdateConflict",
         "TitleConfigSerializationError",
+        "CatalogApiNotImplemented",
         "CatalogEntityInvalid",
         "CatalogTitleIdMissing",
         "CatalogPlayerIdMissing",
@@ -7256,6 +7259,7 @@
         "ExperimentationExclusionGroupInsufficientCapacity",
         "ExperimentationExclusionGroupCannotDelete",
         "ExperimentationExclusionGroupInvalidTrafficAllocation",
+        "ExperimentationExclusionGroupInvalidName",
         "MaxActionDepthExceeded",
         "TitleNotOnUpdatedPricingPlan",
         "SegmentManagementTitleNotInFlight",
@@ -7269,7 +7273,8 @@
         "CreateSegmentRateLimitExceeded",
         "UpdateSegmentRateLimitExceeded",
         "GetSegmentsRateLimitExceeded",
-        "SnapshotNotFound"
+        "SnapshotNotFound",
+        "InventoryApiNotImplemented"
       ]
     },
     "GenericPlayFabIdPair": {
@@ -9262,7 +9267,7 @@
       "type": "object",
       "properties": {
         "IssuerId": {
-          "description": "Id of the PSN issuer environment. If null, defaults to 256 (production)",
+          "description": "Id of the PSN issuer environment. If null, defaults to production environment.",
           "type": "number",
           "x-actualtype": "int32"
         },
@@ -10647,7 +10652,7 @@
           "type": "boolean"
         },
         "IssuerId": {
-          "description": "Id of the PSN issuer environment. If null, defaults to 256 (production)",
+          "description": "Id of the PSN issuer environment. If null, defaults to production environment.",
           "type": "number",
           "x-actualtype": "int32"
         },
@@ -10825,7 +10830,7 @@
       }
     },
     "LoginIdentityProvider": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Unknown",
         "PlayFab",
@@ -11266,7 +11271,7 @@
       "example": {}
     },
     "PlayerConnectionState": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Unassigned",
         "Connecting",
@@ -11829,7 +11834,7 @@
       ]
     },
     "PushNotificationPlatform": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "ApplePushNotificationService",
         "GoogleCloudMessaging"
@@ -12028,7 +12033,7 @@
       "properties": {}
     },
     "Region": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "USCentral",
         "USEast",
@@ -12299,7 +12304,7 @@
       }
     },
     "ResultTableNodeType": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "ItemId",
         "TableId"
@@ -13014,7 +13019,7 @@
       }
     },
     "SourceType": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Admin",
         "BackEnd",
@@ -13227,7 +13232,7 @@
       ]
     },
     "SubscriptionProviderStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "NoError",
         "Cancelled",
@@ -13319,7 +13324,7 @@
       }
     },
     "TitleActivationStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "None",
         "ActivatedTitleKey",
@@ -14231,7 +14236,7 @@
     },
     "UserDataPermission": {
       "description": "Indicates whether a given data key is private (readable only by the player) or public (readable by all players). When a player makes a GetUserData request about another player, only keys marked Public will be returned.",
-      "type": "object",
+      "type": "string",
       "enum": [
         "Private",
         "Public"
@@ -14378,7 +14383,7 @@
       }
     },
     "UserOrigination": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Organic",
         "Steam",
@@ -21060,6 +21065,14 @@
       "id": 1512,
       "name": "VirtualCurrencyCurrentlyUnavailable"
     },
+    "SteamUserNotFound": {
+      "id": 1513,
+      "name": "SteamUserNotFound"
+    },
+    "ElasticSearchOperationFailed": {
+      "id": 1514,
+      "name": "ElasticSearchOperationFailed"
+    },
     "MatchmakingEntityInvalid": {
       "id": 2001,
       "name": "MatchmakingEntityInvalid"
@@ -21155,6 +21168,10 @@
     "TitleConfigSerializationError": {
       "id": 3003,
       "name": "TitleConfigSerializationError"
+    },
+    "CatalogApiNotImplemented": {
+      "id": 4000,
+      "name": "CatalogApiNotImplemented"
     },
     "CatalogEntityInvalid": {
       "id": 4001,
@@ -21464,6 +21481,10 @@
       "id": 7021,
       "name": "ExperimentationExclusionGroupInvalidTrafficAllocation"
     },
+    "ExperimentationExclusionGroupInvalidName": {
+      "id": 7022,
+      "name": "ExperimentationExclusionGroupInvalidName"
+    },
     "MaxActionDepthExceeded": {
       "id": 8000,
       "name": "MaxActionDepthExceeded"
@@ -21519,6 +21540,10 @@
     "SnapshotNotFound": {
       "id": 11000,
       "name": "SnapshotNotFound"
+    },
+    "InventoryApiNotImplemented": {
+      "id": 12000,
+      "name": "InventoryApiNotImplemented"
     }
   }
 }

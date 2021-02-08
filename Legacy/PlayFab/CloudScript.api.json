@@ -2504,7 +2504,7 @@
       "auth": "EntityToken",
       "method": "POST",
       "request": "PostFunctionResultForPlayerTriggeredActionRequest",
-      "requestExample": "{\r\n  \"PlayStreamEventEnvelope\": {\r\n    \"EntityId\": \"1234ABCD\",\r\n    \"EntityType\": \"title_player_account\",\r\n    \"EventName\": \"player_logged_in\",\r\n    \"EventNamespace\": \"com.playfab\",\r\n    \"EventData\": \"someeventdata\",\r\n    \"EventSettings\": \"someeventsettings\"\r\n  },\r\n  \"PlayerProfile\": {\r\n    \"TitleId\": \"FFFF\",\r\n    \"PlayerId\": \"1234ABCD\",\r\n    \"Created\": \"2019-02-11T20:23:05Z\",\r\n    \"LastLogin\": \"2020-02-11T20:23:05Z\",\r\n    \"DisplayName\": \"Gudge\"\r\n  },\r\n  \"FunctionResult\": {\r\n    \"ExecutionTimeMilliseconds\": 367,\r\n    \"FunctionName\": \"LevelCompleted\",\r\n    \"FunctionResult\": {\r\n      \"newScore\": 25,\r\n      \"isWinner\": false\r\n    }\r\n  }\r\n}",
+      "requestExample": "{\r\n  \"PlayStreamEventEnvelope\": {\r\n    \"EntityId\": \"1234ABCD\",\r\n    \"EntityType\": \"title_player_account\",\r\n    \"EventName\": \"player_logged_in\",\r\n    \"EventNamespace\": \"com.playfab\",\r\n    \"EventData\": \"someeventdata\",\r\n    \"EventSettings\": \"someeventsettings\",\r\n    \"EventToBeDropped\": false\r\n  },\r\n  \"PlayerProfile\": {\r\n    \"TitleId\": \"FFFF\",\r\n    \"PlayerId\": \"1234ABCD\",\r\n    \"Created\": \"2019-02-11T20:23:05Z\",\r\n    \"LastLogin\": \"2020-02-11T20:23:05Z\",\r\n    \"DisplayName\": \"Gudge\"\r\n  },\r\n  \"FunctionResult\": {\r\n    \"ExecutionTimeMilliseconds\": 367,\r\n    \"FunctionName\": \"LevelCompleted\",\r\n    \"FunctionResult\": {\r\n      \"newScore\": 25,\r\n      \"isWinner\": false\r\n    }\r\n  }\r\n}",
       "result": "EmptyResult",
       "resultExample": "",
       "seeAlso": [
@@ -4606,6 +4606,14 @@
       "id": 1512,
       "name": "VirtualCurrencyCurrentlyUnavailable"
     },
+    "SteamUserNotFound": {
+      "id": 1513,
+      "name": "SteamUserNotFound"
+    },
+    "ElasticSearchOperationFailed": {
+      "id": 1514,
+      "name": "ElasticSearchOperationFailed"
+    },
     "MatchmakingEntityInvalid": {
       "id": 2001,
       "name": "MatchmakingEntityInvalid"
@@ -4701,6 +4709,10 @@
     "TitleConfigSerializationError": {
       "id": 3003,
       "name": "TitleConfigSerializationError"
+    },
+    "CatalogApiNotImplemented": {
+      "id": 4000,
+      "name": "CatalogApiNotImplemented"
     },
     "CatalogEntityInvalid": {
       "id": 4001,
@@ -5010,6 +5022,10 @@
       "id": 7021,
       "name": "ExperimentationExclusionGroupInvalidTrafficAllocation"
     },
+    "ExperimentationExclusionGroupInvalidName": {
+      "id": 7022,
+      "name": "ExperimentationExclusionGroupInvalidName"
+    },
     "MaxActionDepthExceeded": {
       "id": 8000,
       "name": "MaxActionDepthExceeded"
@@ -5065,6 +5081,10 @@
     "SnapshotNotFound": {
       "id": 11000,
       "name": "SnapshotNotFound"
+    },
+    "InventoryApiNotImplemented": {
+      "id": 12000,
+      "name": "InventoryApiNotImplemented"
     }
   },
   "errorList": [
@@ -5570,6 +5590,8 @@
     "WasNotCreatedWithCloudRoot",
     "LegacyMultiplayerServersDeprecated",
     "VirtualCurrencyCurrentlyUnavailable",
+    "SteamUserNotFound",
+    "ElasticSearchOperationFailed",
     "MatchmakingEntityInvalid",
     "MatchmakingPlayerAttributesInvalid",
     "MatchmakingQueueNotFound",
@@ -5594,6 +5616,7 @@
     "TitleConfigNotFound",
     "TitleConfigUpdateConflict",
     "TitleConfigSerializationError",
+    "CatalogApiNotImplemented",
     "CatalogEntityInvalid",
     "CatalogTitleIdMissing",
     "CatalogPlayerIdMissing",
@@ -5671,6 +5694,7 @@
     "ExperimentationExclusionGroupInsufficientCapacity",
     "ExperimentationExclusionGroupCannotDelete",
     "ExperimentationExclusionGroupInvalidTrafficAllocation",
+    "ExperimentationExclusionGroupInvalidName",
     "MaxActionDepthExceeded",
     "TitleNotOnUpdatedPricingPlan",
     "SegmentManagementTitleNotInFlight",
@@ -5684,6 +5708,7 @@
     "CreateSegmentRateLimitExceeded",
     "UpdateSegmentRateLimitExceeded",
     "GetSegmentsRateLimitExceeded",
-    "SnapshotNotFound"
+    "SnapshotNotFound",
+    "InventoryApiNotImplemented"
   ]
 }

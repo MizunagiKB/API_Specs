@@ -4558,6 +4558,12 @@
           "name": "VirtualCurrencyCurrentlyUnavailable"
         },
         {
+          "name": "SteamUserNotFound"
+        },
+        {
+          "name": "ElasticSearchOperationFailed"
+        },
+        {
           "name": "MatchmakingEntityInvalid"
         },
         {
@@ -4628,6 +4634,9 @@
         },
         {
           "name": "TitleConfigSerializationError"
+        },
+        {
+          "name": "CatalogApiNotImplemented"
         },
         {
           "name": "CatalogEntityInvalid"
@@ -4861,6 +4870,9 @@
           "name": "ExperimentationExclusionGroupInvalidTrafficAllocation"
         },
         {
+          "name": "ExperimentationExclusionGroupInvalidName"
+        },
+        {
           "name": "MaxActionDepthExceeded"
         },
         {
@@ -4901,6 +4913,9 @@
         },
         {
           "name": "SnapshotNotFound"
+        },
+        {
+          "name": "InventoryApiNotImplemented"
         }
       ]
     },
@@ -6643,7 +6658,7 @@
       "properties": [
         {
           "name": "IssuerId",
-          "description": "Id of the PSN issuer environment. If null, defaults to 256 (production)",
+          "description": "Id of the PSN issuer environment. If null, defaults to production environment.",
           "jsontype": "Number",
           "actualtype": "int32",
           "optional": true
@@ -8044,7 +8059,7 @@
         },
         {
           "name": "IssuerId",
-          "description": "Id of the PSN issuer environment. If null, defaults to 256 (production)",
+          "description": "Id of the PSN issuer environment. If null, defaults to production environment.",
           "jsontype": "Number",
           "actualtype": "int32",
           "optional": true
@@ -18529,6 +18544,14 @@
       "id": 1512,
       "name": "VirtualCurrencyCurrentlyUnavailable"
     },
+    "SteamUserNotFound": {
+      "id": 1513,
+      "name": "SteamUserNotFound"
+    },
+    "ElasticSearchOperationFailed": {
+      "id": 1514,
+      "name": "ElasticSearchOperationFailed"
+    },
     "MatchmakingEntityInvalid": {
       "id": 2001,
       "name": "MatchmakingEntityInvalid"
@@ -18624,6 +18647,10 @@
     "TitleConfigSerializationError": {
       "id": 3003,
       "name": "TitleConfigSerializationError"
+    },
+    "CatalogApiNotImplemented": {
+      "id": 4000,
+      "name": "CatalogApiNotImplemented"
     },
     "CatalogEntityInvalid": {
       "id": 4001,
@@ -18933,6 +18960,10 @@
       "id": 7021,
       "name": "ExperimentationExclusionGroupInvalidTrafficAllocation"
     },
+    "ExperimentationExclusionGroupInvalidName": {
+      "id": 7022,
+      "name": "ExperimentationExclusionGroupInvalidName"
+    },
     "MaxActionDepthExceeded": {
       "id": 8000,
       "name": "MaxActionDepthExceeded"
@@ -18988,6 +19019,10 @@
     "SnapshotNotFound": {
       "id": 11000,
       "name": "SnapshotNotFound"
+    },
+    "InventoryApiNotImplemented": {
+      "id": 12000,
+      "name": "InventoryApiNotImplemented"
     }
   },
   "errorList": [
@@ -19493,6 +19528,8 @@
     "WasNotCreatedWithCloudRoot",
     "LegacyMultiplayerServersDeprecated",
     "VirtualCurrencyCurrentlyUnavailable",
+    "SteamUserNotFound",
+    "ElasticSearchOperationFailed",
     "MatchmakingEntityInvalid",
     "MatchmakingPlayerAttributesInvalid",
     "MatchmakingQueueNotFound",
@@ -19517,6 +19554,7 @@
     "TitleConfigNotFound",
     "TitleConfigUpdateConflict",
     "TitleConfigSerializationError",
+    "CatalogApiNotImplemented",
     "CatalogEntityInvalid",
     "CatalogTitleIdMissing",
     "CatalogPlayerIdMissing",
@@ -19594,6 +19632,7 @@
     "ExperimentationExclusionGroupInsufficientCapacity",
     "ExperimentationExclusionGroupCannotDelete",
     "ExperimentationExclusionGroupInvalidTrafficAllocation",
+    "ExperimentationExclusionGroupInvalidName",
     "MaxActionDepthExceeded",
     "TitleNotOnUpdatedPricingPlan",
     "SegmentManagementTitleNotInFlight",
@@ -19607,6 +19646,7 @@
     "CreateSegmentRateLimitExceeded",
     "UpdateSegmentRateLimitExceeded",
     "GetSegmentsRateLimitExceeded",
-    "SnapshotNotFound"
+    "SnapshotNotFound",
+    "InventoryApiNotImplemented"
   ]
 }

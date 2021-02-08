@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "201217",
+    "version": "210129",
     "title": "PlayFab Client API",
     "description": "APIs which provide the full range of PlayFab features available to the client - authentication, account and data management, inventory, friends, matchmaking, reporting, and platform-specific functionality",
     "termsOfService": "https://playfab.com/terms/",
@@ -521,6 +521,36 @@
           "EconomyServiceUnavailable",
           "InvalidRequest"
         ]
+      }
+    },
+    "/Client/ConsumePS5Entitlements": {
+      "post": {
+        "operationId": "ConsumePS5Entitlements",
+        "tags": [
+          "Platform Specific Methods"
+        ],
+        "description": "Checks for any new PS5 entitlements. If any are found, they are consumed (if they're consumables) and added as PlayFab items",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/consumeps5entitlements"
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/ConsumePS5EntitlementsRequest"
+          }
+        ],
+        "security": [
+          {
+            "SessionTicket": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/ConsumePS5EntitlementsResult"
+          },
+          "400": {
+            "$ref": "#/responses/ApiErrorWrapper"
+          }
+        }
       }
     },
     "/Client/ConsumePSNEntitlements": {
@@ -3973,7 +4003,8 @@
           "PlayerSecretAlreadyConfigured",
           "PlayerSecretNotConfigured",
           "RequestViewConstraintParamsNotAllowed",
-          "SteamNotEnabledForTitle"
+          "SteamNotEnabledForTitle",
+          "SteamUserNotFound"
         ]
       }
     },
@@ -6405,7 +6436,7 @@
       }
     },
     "AdActivity": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Opened",
         "Closed",
@@ -7097,7 +7128,7 @@
       }
     },
     "CloudScriptRevisionOption": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Live",
         "Latest",
@@ -7301,6 +7332,47 @@
         }
       }
     },
+    "ConsumePS5EntitlementsRequest": {
+      "type": "object",
+      "properties": {
+        "CatalogVersion": {
+          "description": "Catalog version to use",
+          "type": "string"
+        },
+        "CustomTags": {
+          "description": "The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).",
+          "type": "object"
+        },
+        "MarketplaceSpecificData": {
+          "$ref": "#/definitions/PlayStation5Payload",
+          "description": "Marketplace specific payload containing details to fetch in app purchase transactions",
+          "type": "object",
+          "x-isclass": true
+        }
+      },
+      "required": [
+        "MarketplaceSpecificData"
+      ],
+      "example": {
+        "MarketplaceSpecificData": {
+          "ServiceLabel": "1"
+        },
+        "CatalogVersion": "MainCatalog"
+      }
+    },
+    "ConsumePS5EntitlementsResult": {
+      "type": "object",
+      "properties": {
+        "Items": {
+          "description": "Details for the items purchased.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemInstance"
+          },
+          "x-isclass": true
+        }
+      }
+    },
     "ConsumePSNEntitlementsRequest": {
       "type": "object",
       "properties": {
@@ -7421,7 +7493,7 @@
       }
     },
     "ContinentCode": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "AF",
         "AN",
@@ -7433,7 +7505,7 @@
       ]
     },
     "CountryCode": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "AF",
         "AX",
@@ -7712,7 +7784,7 @@
       }
     },
     "Currency": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "AED",
         "AFN",
@@ -7993,7 +8065,7 @@
       }
     },
     "EmailVerificationStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Unverified",
         "Pending",
@@ -8400,7 +8472,7 @@
       ]
     },
     "GameInstanceState": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Open",
         "Closed"
@@ -10730,7 +10802,7 @@
       "type": "object",
       "properties": {
         "IssuerId": {
-          "description": "Id of the PSN issuer environment. If null, defaults to 256 (production)",
+          "description": "Id of the PSN issuer environment. If null, defaults to production environment.",
           "type": "number",
           "x-actualtype": "int32"
         },
@@ -12121,7 +12193,7 @@
           "type": "boolean"
         },
         "IssuerId": {
-          "description": "Id of the PSN issuer environment. If null, defaults to 256 (production)",
+          "description": "Id of the PSN issuer environment. If null, defaults to production environment.",
           "type": "number",
           "x-actualtype": "int32"
         },
@@ -12331,7 +12403,7 @@
       }
     },
     "LoginIdentityProvider": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Unknown",
         "PlayFab",
@@ -13080,7 +13152,7 @@
           "x-isclass": true
         },
         "IssuerId": {
-          "description": "Id of the PSN issuer environment. If null, defaults to 256 (production)",
+          "description": "Id of the PSN issuer environment. If null, defaults to production environment.",
           "type": "number",
           "x-actualtype": "int32"
         },
@@ -13413,7 +13485,7 @@
       }
     },
     "MatchmakeStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Complete",
         "Waiting",
@@ -14025,6 +14097,22 @@
         "ActivationTime": "2015-12-05T10:02:01"
       }
     },
+    "PlayStation5Payload": {
+      "type": "object",
+      "properties": {
+        "Ids": {
+          "description": "An optional list of entitlement ids to query against PSN",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ServiceLabel": {
+          "description": "Id of the PSN service label to consume entitlements from",
+          "type": "string"
+        }
+      }
+    },
     "PSNAccountPlayFabIdPair": {
       "type": "object",
       "properties": {
@@ -14136,7 +14224,7 @@
       }
     },
     "PushNotificationPlatform": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "ApplePushNotificationService",
         "GoogleCloudMessaging"
@@ -14222,7 +14310,7 @@
           "type": "string"
         },
         "IssuerId": {
-          "description": "Id of the PSN issuer environment. If null, defaults to 256 (production)",
+          "description": "Id of the PSN issuer environment. If null, defaults to production environment.",
           "type": "number",
           "x-actualtype": "int32"
         },
@@ -14241,7 +14329,7 @@
       }
     },
     "Region": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "USCentral",
         "USEast",
@@ -14901,7 +14989,7 @@
       ]
     },
     "SourceType": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Admin",
         "BackEnd",
@@ -15312,7 +15400,7 @@
       ]
     },
     "SubscriptionProviderStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "NoError",
         "Cancelled",
@@ -15361,7 +15449,7 @@
       }
     },
     "TitleActivationStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "None",
         "ActivatedTitleKey",
@@ -15474,7 +15562,7 @@
       }
     },
     "TradeStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Invalid",
         "Opening",
@@ -15486,7 +15574,7 @@
       ]
     },
     "TransactionStatus": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "CreateCart",
         "Init",
@@ -16402,7 +16490,7 @@
     },
     "UserDataPermission": {
       "description": "Indicates whether a given data key is private (readable only by the player) or public (readable by all players). When a player makes a GetUserData request about another player, only keys marked Public will be returned.",
-      "type": "object",
+      "type": "string",
       "enum": [
         "Private",
         "Public"
@@ -16549,7 +16637,7 @@
       }
     },
     "UserOrigination": {
-      "type": "object",
+      "type": "string",
       "enum": [
         "Organic",
         "Steam",
@@ -17308,6 +17396,13 @@
       "in": "body",
       "schema": {
         "$ref": "#/definitions/ConsumeMicrosoftStoreEntitlementsRequest"
+      }
+    },
+    "ConsumePS5EntitlementsRequest": {
+      "name": "ConsumePS5EntitlementsRequest",
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/ConsumePS5EntitlementsRequest"
       }
     },
     "ConsumePSNEntitlementsRequest": {
@@ -18737,6 +18832,25 @@
           },
           "data": {
             "$ref": "#/definitions/ConsumeMicrosoftStoreEntitlementsResponse"
+          }
+        }
+      }
+    },
+    "ConsumePS5EntitlementsResult": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "The Http status code. If X-ReportErrorAsSuccess header is set to true, this will report the actual http error code."
+          },
+          "status": {
+            "type": "string",
+            "description": "The Http status code as a string."
+          },
+          "data": {
+            "$ref": "#/definitions/ConsumePS5EntitlementsResult"
           }
         }
       }
@@ -24637,6 +24751,14 @@
       "id": 1512,
       "name": "VirtualCurrencyCurrentlyUnavailable"
     },
+    "SteamUserNotFound": {
+      "id": 1513,
+      "name": "SteamUserNotFound"
+    },
+    "ElasticSearchOperationFailed": {
+      "id": 1514,
+      "name": "ElasticSearchOperationFailed"
+    },
     "MatchmakingEntityInvalid": {
       "id": 2001,
       "name": "MatchmakingEntityInvalid"
@@ -24732,6 +24854,10 @@
     "TitleConfigSerializationError": {
       "id": 3003,
       "name": "TitleConfigSerializationError"
+    },
+    "CatalogApiNotImplemented": {
+      "id": 4000,
+      "name": "CatalogApiNotImplemented"
     },
     "CatalogEntityInvalid": {
       "id": 4001,
@@ -25041,6 +25167,10 @@
       "id": 7021,
       "name": "ExperimentationExclusionGroupInvalidTrafficAllocation"
     },
+    "ExperimentationExclusionGroupInvalidName": {
+      "id": 7022,
+      "name": "ExperimentationExclusionGroupInvalidName"
+    },
     "MaxActionDepthExceeded": {
       "id": 8000,
       "name": "MaxActionDepthExceeded"
@@ -25096,6 +25226,10 @@
     "SnapshotNotFound": {
       "id": 11000,
       "name": "SnapshotNotFound"
+    },
+    "InventoryApiNotImplemented": {
+      "id": 12000,
+      "name": "InventoryApiNotImplemented"
     }
   }
 }
